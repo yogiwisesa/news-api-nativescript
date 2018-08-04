@@ -29,7 +29,7 @@ npm run clean
 For detailed instructions, see https://github.com/nativescript-vue/vue-cli-template
 
 ## Tech stack
-### 1. Nativescript-vue
-### 2. Vue-Router
-### 3. Vuex
-### 4. Axios
+1. Nativescript-vue
+2. Vue-Router
+3. Vuex
+4. Axios
