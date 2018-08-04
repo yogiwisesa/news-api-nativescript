@@ -27,3 +27,9 @@ npm run clean
 > When invoking the various npm scripts, omitting the platform will attempt to launch `tns` for both platforms, which will only work in a properly configured OSX environment.
 
 For detailed instructions, see https://github.com/nativescript-vue/vue-cli-template
+
+## Tech stack
+1. Nativescript-vue
+2. Vue-Router
+3. Vuex
+4. Axios

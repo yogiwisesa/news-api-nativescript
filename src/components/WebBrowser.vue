@@ -1,10 +1,7 @@
 <template>
     <Page class="page">
         <ActionBar class="action-bar" title="News" />
-        <FlexboxLayout flexDirection="column">
-            <ActivityIndicator id="progressBar" v-if="isLoading" busy="true" />
-            <WebView :src="url" />
-        </FlexboxLayout>
+        <WebView :src="url" />
     </Page>
 </template>
 
@@ -12,25 +9,12 @@
 export default {
   data() {
     return {
-      isLoading: false
     };
   },
   computed: {
     url() {
-      return this.$store.state.url.url;
-    }
-  },
-  methods: {
-    hideProgressbar(event) {
-        console.log(event);
-      this.isLoading = false;
+        return this.$store.state.url.url; 
     }
   }
 };
 </script>
-
-<style>
-#progressBar {
-  margin-top: 30%;
-}
-</style>
