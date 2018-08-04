@@ -3,13 +3,13 @@
     <ActionBar class="action-bar" title="Home" />
     <FlexboxLayout flexDirection="column">
       <ActivityIndicator id="progressBar" v-if="isLoading" busy="true" />
-      <ListView for="article in articles" background="#FFF">
+      <ListView for="article in articles" background="#FFF" @itemTap="onItemTap">
         <v-template>
           <FlexboxLayout flexDirection="column">
             <Image id="image-preview" :src="article.urlToImage" stretch="aspectFill" />
             <Label id="title" :text="article.title" />
             <Label id="description" :text="article.description" textWrap="true" />
-            <Label id="author" :text="article.author"/>
+            <Label id="author" :text="article.author" />
           </FlexboxLayout>
         </v-template>
       </ListView>
@@ -35,10 +35,15 @@ export default {
           "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=109cafd7e6a94b0cae047707712c8c25"
         )
         .then(response => {
-          this.articles = response.data.articles;
+        this.articles = response.data.articles;
           console.log(this.articles[0]);
           this.isLoading = false;
         });
+    },
+    onItemTap(event) {
+      console.log(event.item.url);
+      this.$store.commit('setUrl', event.item.url)
+      this.$router.push(`/webbrowser`);
     }
   },
   mounted() {
@@ -64,7 +69,7 @@ export default {
   margin-bottom: 16px;
 }
 
-#author{
+#author {
   margin-bottom: 16px;
   font-style: italic;
 }
