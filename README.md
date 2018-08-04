@@ -1,4 +1,4 @@
-# HelloWorld
+# News Reader
 
 > A native application built with NativeScript-Vue
 
